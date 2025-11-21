@@ -2,7 +2,6 @@ package com.zhaixin.advert.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,9 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.gzuliyujiang.oaid.DeviceID;
-import com.github.gzuliyujiang.oaid.DeviceIdentifier;
-import com.github.gzuliyujiang.oaid.IGetter;
 import com.heart.weather.R;
 import com.zhaixin.ZXAD;
 import com.zhaixin.advert.BannerAd;
