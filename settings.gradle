@@ -1,2 +1,2 @@
-//rootProject.name = "ZXAD"
+rootProject.name = "ZXAD"
 include ':app', ':library'
