@@ -3,6 +3,7 @@ buildscript {
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/google'}
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
     }
@@ -21,13 +22,14 @@ apply plugin: 'maven-publish'
 publishing {
     publications {
         aar(MavenPublication) {
-            groupId = 'com.zhaixin'
+            groupId = 'com.zhaixin'    // 保持一致
             artifactId = 'adsdk'
-            version = '2.6.0'
+            version = '2.6.0'            // 改为 2.6.0，与文件名一致
             artifact("app/libs/AdSdk-2.6.0.aar")
         }
     }
 }
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

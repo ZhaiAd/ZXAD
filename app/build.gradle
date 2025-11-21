@@ -1,26 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'maven-publish'
-}
-
-// 第一个 AAR
-publishing {
-    publications {
-        adSdk(MavenPublication) {
-            groupId = 'com.zhaixin'
-            artifactId = 'adsdk'
-            version = '2.6.0'
-            artifact("app/libs/AdSdk-2.6.0.aar")
-        }
-
-        // 可以添加更多 AAR
-        anotherLib(MavenPublication) {
-            groupId = 'com.zhaixin'
-            artifactId = 'adgain-sdk'
-            version = '4.2.3.2'
-            artifact("app/libs/adgain-sdk-4.2.3.2.aar")
-        }
-    }
 }
 
 android {
@@ -97,52 +76,3 @@ dependencies {
 
 
 }
-///// =============== 修正的 POM 生成脚本 ===============
-//task generateAdSdkPom {
-//    doLast {
-//        def groupId = 'com.zhuocloud'
-//        def artifactId = 'adsdk'
-//        def version = '2.6.0'
-//
-//        // 修正：使用单引号避免字符串插值问题
-//        def pomContent = '''<?xml version="1.0" encoding="UTF-8"?>
-//<project>
-//  <modelVersion>4.0.0</modelVersion>
-//  <groupId>com.zhuocloud</groupId>
-//  <artifactId>adsdk</artifactId>
-//  <version>2.6.0</version>
-//  <packaging>aar</packaging>
-//</project>'''
-//
-//        // 生成到项目根目录的 generated-pom 文件夹
-//        def pomDir = file("${project.rootDir}/app/libs")
-//        pomDir.mkdirs()
-//        def pomFile = file("${pomDir}/AdSdk-${version}.pom")
-//        pomFile.text = pomContent
-//
-//        println "✅ 生成: AdSdk-${version}.pom"
-//        println "📁 文件位置: ${pomFile.absolutePath}"
-//        println "📁 上传到Gitee: maven/com/zhuocloud/adsdk/${version}/"
-//        println "🔗 依赖配置: implementation '${groupId}:${artifactId}:${version}'"
-//    }
-//}
-//
-//task checkAdSdkAar {
-//    doLast {
-//        def aarFile = file('libs/AdSdk-2.6.0.aar')
-//        if (aarFile.exists()) {
-//            println "✅ AAR 文件存在: ${aarFile.name}"
-//            println "💡 上传时需要重命名为: adsdk-2.6.0.aar"
-//        } else {
-//            println "❌ AAR 文件不存在: ${aarFile.name}"
-//        }
-//    }
-//}
-//
-//task setupAdSdkRemote {
-//    dependsOn 'checkAdSdkAar', 'generateAdSdkPom'
-//    doLast {
-//        println "🎉 所有准备工作完成！请按照指引上传文件到Gitee"
-//    }
-//}
-//// =============== 脚本结束 ===============
