@@ -31,10 +31,6 @@
             android:exported="true"
             android:launchMode="singleTask" />
         <activity
-            android:name="com.zhaixin.advert.demo.BannerActivity"
-            android:exported="true"
-            android:launchMode="singleTask" />
-        <activity
             android:name="com.zhaixin.advert.demo.FeedListActivity"
             android:exported="true"
             android:launchMode="singleTask" />

@@ -250,8 +250,6 @@ public class MainActivity extends AppCompatActivity {
 
         // 设置 Banner 广告尺寸
         ad.load(MainActivity.this, mContent.getWidth(), 0);
-        // 在这里初始化视图和逻辑
-//        Banner(view);
 
     }
 
@@ -260,30 +258,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FeedListActivity.class);
         if (debug) intent.putExtra("platforms", getDebugPlatforms());
         startActivity(intent);
-
-        DeviceIdentifier.getOAID(MainActivity.this);
-
-
-        DeviceID.getOAID(MainActivity.this, new IGetter() {
-            @Override
-            public void onOAIDGetComplete(String result) {
-                Log.d("Hao", "oaid=>" + result);
-
-            }
-
-            @Override
-            public void onOAIDGetError(Exception error) {
-
-            }
-        });
-
     }
 
-    // 横幅广告
-    public void Banner(View view) {
-        Intent intent = new Intent(this, BannerActivity.class);
-        if (debug) intent.putExtra("platforms", getDebugPlatforms());
-        startActivity(intent);
-    }
 
 }
