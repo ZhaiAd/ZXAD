@@ -14,12 +14,20 @@ allprojects {
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
         maven { url 'https://developer.huawei.com/repo/' }
         maven { url 'https://jitpack.io' }
-        maven {
-            url "https://raw.githubusercontent.com/ZhaiAd/ZxAd/main/maven"
+    }
+}
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.zhaixin'
+            artifactId = 'adsdk'
+            version = '2.6.0'
+            artifact("app/libs/AdSdk-2.6.0.aar")
         }
     }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
