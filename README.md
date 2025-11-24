@@ -14,6 +14,7 @@ repositories {
 }
 
 dependencies {
+    implementation(name: 'AdSdk-2.6.0', ext: "aar")//宅心
     implementation(name: 'open_ad_sdk_7.2.0.9', ext: "aar")//穿山甲
     implementation(name: 'GDTSDK.unionNormal.4.660.1530', ext: "aar")//优量汇
     implementation(name: 'Baidu_MobAds_SDK-release_v9.42', ext: "aar")//百度
@@ -33,28 +34,34 @@ dependencies {
     implementation(name: 'anythink_native', ext: 'aar')//塔酷
     implementation(name: 'anythink_rewardvideo', ext: 'aar')//塔酷
     implementation(name: 'anythink_splash', ext: 'aar')//塔酷
+    implementation(name: 'adgain-sdk-4.2.3.2', ext: 'aar')//数字悦动
+    implementation(name: 'fissionSdk-release-1.0.81.61-open', ext: 'aar')//飞梭
 
 
-    //宅心SDK必须引入以下内容
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
 
-    //美数SDK必须引入以下内容
-    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
-    implementation 'com.google.code.gson:gson:2.8.6'
 
-    //多盟SDK必须引入以下内容
-    implementation 'com.google.protobuf:protobuf-java:4.27.2'
-    implementation 'com.domob.sdk:oaid:1.0.251'
-    // 可选 如果需要微信小程序广告再添加，SDK-3.2.0 增加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.0'
-
-    //脉盟SDK必须引入以下内容
+    //美数
+    //脉盟
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
     implementation 'com.squareup.okio:okio:3.6.0'
     implementation "com.android.support.constraint:constraint-layout:2.0.4"
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
+    //多盟
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.google.protobuf:protobuf-java:4.27.5'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.0'
+
+    //惊鸿动能
+    implementation "com.huawei.hms:ads-lite:13.4.78.301"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //飞梭
+    implementation "com.google.guava:guava:31.0.1-android"
 }
 
 AndroidX依赖
