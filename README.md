@@ -300,5 +300,4 @@ ZXAD.getVersion();
 
 1. 宅心科技SDK仅支持minSdkVersion为24，即兼容的最小手机系统版本为7.0
 
-**demo 下载**
-![替代文本](https://www.pgyer.com/app/qrcode/XVD50HzJ)
+![demo 下载地址](https://www.pgyer.com/app/qrcode/XVD50HzJ)
