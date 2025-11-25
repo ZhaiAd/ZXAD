@@ -1,22 +1,10 @@
-## **宅心科技广告引擎 Android SDK 接入文档**
+## **宅心科技广告引擎Android接入文档**
 
 > 修改时间：2025.11.25
 
-概述
-宅心科技广告引擎 SDK 是一个聚合多家主流广告平台的 Android 广告解决方案，提供开屏、激励视频、信息流等多种广告形式的统一接入接口。
+**一、导入SDK**
 
-```
-环境要求
-系统要求
-minSdkVersion：24（Android 7.0+）
-compileSdkVersion：建议 33+
-Gradle：建议 7.0+
-AndroidX：必须
-```
-
-**一、添加依赖**
-
-将以下 aar 文件放入项目的 libs 目录：
+将SDK包中的aar放入工程中的libs下并填写如下依赖
 
 ```groovy
 repositories {
@@ -26,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation(name: 'AdSdk-2.6.0', ext: "aar")//主 SDK
+    implementation(name: 'AdSdk-2.6.0', ext: "aar")//宅心
     implementation(name: 'open_ad_sdk_7.2.0.9', ext: "aar")//穿山甲
     implementation(name: 'GDTSDK.unionNormal.4.660.1530', ext: "aar")//优量汇
     implementation(name: 'Baidu_MobAds_SDK-release_v9.42', ext: "aar")//百度
@@ -49,7 +37,7 @@ dependencies {
     implementation(name: 'adgain-sdk-4.2.3.2', ext: 'aar')//数字悦动
     implementation(name: 'fissionSdk-release-1.0.81.61-open', ext: 'aar')//飞梭
 
-    必要第三方依赖
+
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
@@ -76,16 +64,13 @@ dependencies {
     implementation "com.google.guava:guava:31.0.1-android"
 }
 
-
-
-
 AndroidX依赖
 如果您的工程使用的是AndroidX的环境，请参考官网升级AndroidX，在`gradle.properties`文件中新增如下配置。
 ## Android 插件会使用对应的 AndroidX 库而非支持库。
 android.useAndroidX=true
 ## Android 插件会通过重写现有第三方库的二进制文件，自动将这些库迁移为使用 AndroidX。
 android.enableJetifier=true
-
+```
 
 
 **二、初始化**
