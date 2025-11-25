@@ -1,10 +1,10 @@
 jdk:
   - openjdk8
 before_install:
-  - sdk install java 8.0.292-open
-  - sdk use java 8.0.292-open
-  - sdk install gradle 6.8.3
-  - sdk use gradle 6.8.3
+  - sdk install java 8.0.392-open
+  - sdk use java 8.0.392-open
+  - sdk install gradle 6.7.1
+  - sdk use gradle 6.7.1
+  - export GRADLE_OPTS="-Xmx2048m -Dorg.gradle.daemon=false"
 install:
-  - ./gradlew :library:assemble
-  - ./gradlew :library:assembleRelease
+  - ./gradlew :library:assembleRelease --stacktrace --no-daemon
