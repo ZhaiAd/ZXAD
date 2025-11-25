@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation(name: 'AdSdk-2.6.0', ext: "aar")//宅心
+    implementation(name: 'ZhaiXin_V2.6.1_release', ext: "aar")//宅心
     implementation(name: 'open_ad_sdk_7.2.0.9', ext: "aar")//穿山甲
     implementation(name: 'GDTSDK.unionNormal.4.660.1530', ext: "aar")//优量汇
     implementation(name: 'Baidu_MobAds_SDK-release_v9.42', ext: "aar")//百度
@@ -39,6 +39,7 @@ dependencies {
 
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
@@ -59,7 +60,6 @@ dependencies {
 
     //惊鸿动能
     implementation "com.huawei.hms:ads-lite:13.4.78.301"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //飞梭
     implementation "com.google.guava:guava:31.0.1-android"
 }

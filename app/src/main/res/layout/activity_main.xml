@@ -119,21 +119,6 @@
                 android:textColor="@color/shape_button_color"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/mySplash"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/shape_button_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:onClick="mySplash"
-                android:text="@string/zhaixinad"
-                android:textColor="@color/shape_button_color"
-                android:textStyle="bold"
-                android:visibility="gone" />
-
         </LinearLayout>
     </ScrollView>
 
