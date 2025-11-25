@@ -74,7 +74,10 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //飞梭
     implementation "com.google.guava:guava:31.0.1-android"
-}```
+}
+
+
+
 
 AndroidX依赖
 如果您的工程使用的是AndroidX的环境，请参考官网升级AndroidX，在`gradle.properties`文件中新增如下配置。
