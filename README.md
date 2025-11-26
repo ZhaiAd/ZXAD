@@ -67,12 +67,10 @@ dependencies {
 
 **AndroidX依赖**
 如果您的工程使用的是AndroidX的环境，请参考官网升级AndroidX，在`gradle.properties`文件中新增如下配置。
->Android 插件会使用对应的 AndroidX 库而非支持库。
 ```groovy
+## Android 插件会使用对应的 AndroidX 库而非支持库。
 android.useAndroidX=true
-```
->Android 插件会通过重写现有第三方库的二进制文件，自动将这些库迁移为使用 AndroidX。
-```groovy
+## Android 插件会通过重写现有第三方库的二进制文件，自动将这些库迁移为使用 AndroidX。
 android.enableJetifier=true
 ```
 
