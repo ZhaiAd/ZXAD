@@ -87,7 +87,7 @@ ZXAD.init(this, APP_ID);
 **三、开屏广告**
 
 ```java
-//请联系商务获取POSID
+##请联系商务获取POSID
 //content为开屏广告容器
 SplashAd ad = new SplashAd(POSID);
 //打开调试模式，输出所有sdk日志
@@ -147,6 +147,7 @@ ad.load(this);
 ```java
 //请联系商务获取POSID
 RewardVideoAd ad = new RewardVideoAd(POSID);
+ad.enableDebug();
 ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
@@ -188,7 +189,7 @@ ad.load(MainActivity.this);
 ```java
 //请联系商务获取POSID
 FullScreenAd ad = new FullScreenAd(POSID);
-if (debug) ad.enableDebug(getDebugPlatforms());
+ad.enableDebug();
 ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
@@ -209,6 +210,7 @@ ad.load(MainActivity.this);
 ```java
 //请联系商务获取POSID
 InterstitialAd ad = new InterstitialAd(POSID);
+ad.enableDebug();
 ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
@@ -229,6 +231,7 @@ ad.load(MainActivity.this);
 ```java
 //请联系商务获取POSID
 BannerAd ad = new BannerAd(POSID);
+ad.enableDebug();
 ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
@@ -249,6 +252,7 @@ ad.load(MainActivity.this, mContent.getWidth(),mContent.getHeight());
 ```java
 //请联系商务获取POSID
 FeedAd advert = new FeedAd(POSID);
+ad.enableDebug();
 advert.setAdLoadListener(new FeedLoadListener() {
     @Override
     public void onLoad(List<FeedAdData> list) {
