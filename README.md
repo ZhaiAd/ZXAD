@@ -66,7 +66,7 @@ dependencies {
 ```
 
 **AndroidX依赖**
-如果您的工程使用的是AndroidX的环境，请参考官网升级AndroidX，在`gradle.properties`文件中新增如下配置。
+>如果您的工程使用的是AndroidX的环境，请参考官网升级AndroidX，在`gradle.properties`文件中新增如下配置。
 ```groovy
 ## Android 插件会使用对应的 AndroidX 库而非支持库。
 android.useAndroidX=true
