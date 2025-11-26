@@ -87,7 +87,7 @@ ZXAD.init(this, APP_ID);
 **三、开屏广告**
 
 ```java
-##请联系商务获取POSID
+//请联系商务获取POSID
 //content为开屏广告容器
 SplashAd ad = new SplashAd(POSID);
 //打开调试模式，输出所有sdk日志
