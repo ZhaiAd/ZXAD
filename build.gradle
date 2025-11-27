@@ -2,9 +2,8 @@ buildscript {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        maven { url 'https://jitpack.io' }
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
     }
@@ -15,8 +14,8 @@ allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://developer.huawei.com/repo/' }
         maven { url 'https://jitpack.io' }
-        maven { url 'https://developer.huawei.com/repo/' }  // 如果需要华为依赖
     }
 }
 

@@ -30,6 +30,9 @@ android {
     }
 }
 
+configurations.maybeCreate("default")
+artifacts.add("default", file('libs/ZhaiXin_V2.6.1_release.aar'))
+
 dependencies {
     api fileTree(include: ['*.aar'], dir: 'libs')
 }
