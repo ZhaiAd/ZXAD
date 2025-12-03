@@ -111,6 +111,8 @@ ad.setAdViewListener(new AdViewListener() {
     }
 });
 ad.load(this);
+//获取ecpm
+ad.getEcpm()
 ```
 
 
