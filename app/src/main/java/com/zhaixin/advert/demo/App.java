@@ -8,6 +8,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ZXAD.init(this, "48200341");
+        ZXAD.init(this, "4820034");
     }
 }

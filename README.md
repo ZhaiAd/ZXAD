@@ -14,54 +14,26 @@ repositories {
 }
 
 dependencies {
-    implementation(name: 'ZhaiXin_V2.6.1_release', ext: "aar")//宅心
-    implementation(name: 'open_ad_sdk_7.2.0.9', ext: "aar")//穿山甲
-    implementation(name: 'GDTSDK.unionNormal.4.660.1530', ext: "aar")//优量汇
-    implementation(name: 'Baidu_MobAds_SDK-release_v9.42', ext: "aar")//百度
-    implementation(name: 'kssdk-ad-4.9.20.1-publishRelease-a97b69133a', ext: "aar")//快手
-    implementation(name: 'jad_yun_sdk_jingdong_2.6.32_20250523', ext: 'aar')//京东
-    implementation(name: 'beizi_fusion_sdk_5.2.1.18', ext: "aar")//倍孜
-    implementation(name: 'octopus_ad_sdk_1.6.4.7', ext: "aar")//章鱼
-    implementation(name: 'ms-sdk_2.5.8.11_release', ext: 'aar')//美数
-    implementation(name: 'domob-ad-sdk-3.6.1', ext: 'aar')//多盟
-    implementation(name: 'mm_ad_sdk_7.4.10.0_android', ext: 'aar')//脉盟
-    implementation(name: 'wind-common-1.8.6', ext: 'aar')//sigmob
-    implementation(name: 'wind-sdk-4.24.7', ext: 'aar')//sigmob
-    implementation(name: 'anythink_china_core', ext: 'aar')//塔酷
-    implementation(name: 'anythink_core', ext: 'aar')//塔酷
-    implementation(name: 'anythink_banner', ext: 'aar')//塔酷
-    implementation(name: 'anythink_interstitial', ext: 'aar')//塔酷
-    implementation(name: 'anythink_native', ext: 'aar')//塔酷
-    implementation(name: 'anythink_rewardvideo', ext: 'aar')//塔酷
-    implementation(name: 'anythink_splash', ext: 'aar')//塔酷
-    implementation(name: 'adgain-sdk-4.2.3.2', ext: 'aar')//数字悦动
-    implementation(name: 'fissionSdk-release-1.0.81.61-open', ext: 'aar')//飞梭
-
+    implementation(name: 'ZhaiXin_3.1.0_release', ext: "aar")
+    implementation(name: 'ag', ext: 'aar')
+    implementation(name: 'china_core', ext: 'aar')
+    implementation(name: 'core', ext: 'aar')
+    implementation(name: 'banner', ext: 'aar')
+    implementation(name: 'interstitial', ext: 'aar')
+    implementation(name: 'native', ext: 'aar')
+    implementation(name: 'rewardvideo', ext: 'aar')
+    implementation(name: 'splash', ext: 'aar')
+    implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
 
 
-    //美数
-    //脉盟
-    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-    implementation 'com.squareup.okio:okio:3.6.0'
-    implementation "com.android.support.constraint:constraint-layout:2.0.4"
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'androidx.cardview:cardview:1.0.0'
 
-    //多盟
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    implementation 'com.google.protobuf:protobuf-java:4.27.5'
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.0'
-
-    //惊鸿动能
-    implementation "com.huawei.hms:ads-lite:13.4.78.301"
-    //飞梭
-    implementation "com.google.guava:guava:31.0.1-android"
 }
 ```
 
@@ -301,7 +273,3 @@ ZXAD.getVersion();
 **十一、常见问题**
 
 1. 宅心科技SDK仅支持minSdkVersion为24，即兼容的最小手机系统版本为7.0
-
-**可下载demo体验**
-
-![demo 下载地址](https://www.pgyer.com/app/qrcode/XVD50HzJ)
