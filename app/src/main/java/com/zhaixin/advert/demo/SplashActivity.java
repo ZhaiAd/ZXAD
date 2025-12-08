@@ -13,6 +13,7 @@ import com.zhaixin.advert.Platform;
 import com.zhaixin.advert.SplashAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
+import com.zhaixin.provider.SdkProviderType;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class SplashActivity extends AppCompatActivity {
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
@@ -40,10 +42,6 @@ public class SplashActivity extends AppCompatActivity {
 
         SplashAd ad = new SplashAd("2629995460");
         ad.enableDebug();
-        if (getIntent().hasExtra("platforms")) {
-            ad.enableDebug((Platform[]) getIntent()
-                    .getSerializableExtra("platforms"));
-        }
         ad.setAdLoadListener(new AdLoadListener() {
             @Override
             public void onLoad() {

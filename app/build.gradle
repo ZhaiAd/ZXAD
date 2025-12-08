@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.lockin.loock"
+        applicationId "com.zhaixin.test"
         minSdkVersion 24
         targetSdkVersion 31
         versionCode 1
@@ -48,6 +48,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //oaid
     implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
 
     //美数
