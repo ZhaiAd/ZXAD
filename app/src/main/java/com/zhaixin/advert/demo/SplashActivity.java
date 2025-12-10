@@ -9,11 +9,9 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.heart.weather.R;
-import com.zhaixin.advert.Platform;
 import com.zhaixin.advert.SplashAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
-import com.zhaixin.provider.SdkProviderType;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
