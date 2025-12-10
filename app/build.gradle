@@ -48,26 +48,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //宅心
     implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
-
-    //美数
-    //脉盟
-//    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-//    implementation 'com.squareup.okio:okio:3.6.0'
-//    implementation "com.android.support.constraint:constraint-layout:2.0.4"
-//    implementation 'com.google.code.gson:gson:2.10.1'
-//    implementation 'androidx.cardview:cardview:1.0.0'
-
-    //多盟
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-//    implementation 'com.google.protobuf:protobuf-java:4.27.5'
-//    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.0'
-
-    //惊鸿动能
-//    implementation "com.huawei.hms:ads-lite:13.4.78.301"
-
-    //飞梭
-//    implementation "com.google.guava:guava:31.0.1-android"
+    //implementation "com.google.guava:guava:31.0.1-android"
     implementation project(':library')
 
 }
