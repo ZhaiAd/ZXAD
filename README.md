@@ -46,20 +46,28 @@ android.useAndroidX=true
 android.enableJetifier=true
 ```
 
+**注意事项**
+>Taku后台添加自定义广告平台时，Adapter类名需配置全路径类名（包名+类名），否则加载广告时Adapter类将不能正常被创建
+•因为SDK内部是通过反射new出Adapter的类，所以在构建release包时，必须确保Adapter类不能被混淆。混淆规则示例如下：
+```groovy
+# 保留 com.zhaixin.advert.takuadapter 包下所有类及其所有成员
+-keep class com.zhaixin.advert.takuadapter.** { *; }
+```
 
 **二、初始化**
 
 请在Application的onCreate中调用以下方法进行初始化，初始化需要填写AppID，请联系商务申请。
 
 ```java
-ZXAD.init(this, APP_ID);
+ ATSDK.init(this, APP_ID, App_Key:);
+
+ ATSDK.start();
 ```
 
 
 **三、开屏广告**
 
 ```java
-//请联系商务获取POSID
 //content为开屏广告容器
 SplashAd ad = new SplashAd(POSID);
 //打开调试模式，输出所有sdk日志

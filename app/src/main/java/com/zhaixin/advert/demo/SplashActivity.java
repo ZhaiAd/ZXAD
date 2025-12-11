@@ -94,58 +94,6 @@ public class SplashActivity extends AppCompatActivity {
         mAdvert.loadAd();
     }
 
-    private void initZx() {
-        SplashAd ad = new SplashAd("2629995460");
-        ad.enableDebug();
-
-        ad.setAdLoadListener(new AdLoadListener() {
-            @Override
-            public void onLoad() {
-                ad.show(content);
-            }
-
-            @Override
-            public void onNoAd(int code, String message) {
-                toMain();
-            }
-        });
-        ad.setAdViewListener(new AdViewListener() {
-            @Override
-            public void onShow() {
-            }
-
-            @Override
-            public void onClose() {
-                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
-                    adClose = true;
-                    return;
-                }
-                toMain();
-            }
-
-            @Override
-            public void onClick() {
-            }
-
-            @Override
-            public void onReward() {
-            }
-
-            @Override
-            public void onResourceError() {
-                if (!SplashActivity.this.isFinishing()) {
-                    toMain();
-//                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                    startActivity(intent);
-//                    finish();
-                }
-            }
-        });
-        ad.load(this);
-
-    }
 
     private void toMain(){
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);

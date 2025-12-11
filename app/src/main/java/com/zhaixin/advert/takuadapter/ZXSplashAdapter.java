@@ -1,4 +1,4 @@
-package com.zhaixin.advert.demo;
+package com.zhaixin.advert.takuadapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -37,7 +37,7 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
 
     private boolean isReady;
 
-    private SplashAd splashAD;
+    private SplashAd splashAd;
 
     @Override
     public void loadCustomNetworkAd(Context context, Map<String, Object> serverExtra, final Map<String, Object> localExtra) {
@@ -67,16 +67,16 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
             return;
         }
 
-        if (splashAD != null) {
-            viewGroup.post(() -> splashAD.show(viewGroup));
+        if (splashAd != null) {
+            viewGroup.post(() -> splashAd.show(viewGroup));
         }
 
     }
 
     @Override
     public void destory() {
-        if (splashAD!=null)
-        splashAD = null;
+        if (splashAd !=null)
+        splashAd = null;
     }
 
     @Override
@@ -140,8 +140,8 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
 
         if (isC2SBidding) {
             if (mBiddingListener != null) {
-                if (splashAD != null) {
-                    double price = splashAD.getEcpm();
+                if (splashAd != null) {
+                    double price = splashAd.getEcpm();
 
                     mBiddingListener.onC2SBiddingResultWithCache(ATBiddingResult.success(price, System.currentTimeMillis() + "", null, ATAdConst.CURRENCY.RMB_CENT), null);
                 } else {
@@ -183,23 +183,6 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
         return true;
     }
 
-    private void startLoadAd(final Context context) {
-
-        if (!(context instanceof Activity)) {
-            notifyATLoadFail("", "ZXAD: Context must be Activity for splash ad");
-            return;
-        }
-
-        splashAD = new SplashAd(mPosId);
-
-        splashAD.enableDebug();
-
-        splashAD.setAdLoadListener(this);
-
-        splashAD.setAdViewListener(this);
-
-        splashAD.load((Activity) context);
-    }
 
     private void initRequestParams(Map<String, Object> serverExtra) {
 
@@ -208,5 +191,23 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
         mPosId = ATInitMediation.getStringFromMap(serverExtra, "slot_id");
 
         isReady = false;
+    }
+
+    private void startLoadAd(final Context context) {
+
+        if (!(context instanceof Activity)) {
+            notifyATLoadFail("", "ZXAD: Context must be Activity for splash ad");
+            return;
+        }
+
+        splashAd = new SplashAd(mPosId);
+
+        splashAd.enableDebug();
+
+        splashAd.setAdLoadListener(this);
+
+        splashAd.setAdViewListener(this);
+
+        splashAd.load((Activity) context);
     }
 }

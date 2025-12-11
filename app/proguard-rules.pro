@@ -20,4 +20,5 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class com.zhaixin.advert.demo.ZXSplashAdapter { *; }
+# 保留 com.zhaixin.advert.takuadapter 包下所有类及其所有成员
+-keep class com.zhaixin.advert.takuadapter.** { *; }
