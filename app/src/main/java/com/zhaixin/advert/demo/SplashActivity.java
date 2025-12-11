@@ -8,8 +8,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import com.anythink.core.api.ATAdInfo;
+import com.anythink.core.api.AdError;
+import com.anythink.splashad.api.ATSplashAd;
+import com.anythink.splashad.api.ATSplashAdExtraInfo;
+import com.anythink.splashad.api.ATSplashAdListener;
 import com.heart.weather.R;
-import com.zhaixin.advert.Platform;
 import com.zhaixin.advert.SplashAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
@@ -19,6 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Lifecycle;
 
 public class SplashActivity extends AppCompatActivity {
+
+    private ATSplashAd mAdvert;
 
     private FrameLayout content;
 
@@ -38,12 +44,60 @@ public class SplashActivity extends AppCompatActivity {
 
         content = findViewById(R.id.content);
 
+        initTk();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (adClose) {
+            toMain();
+        }
+    }
+
+    private void initTk() {
+        mAdvert = new ATSplashAd(SplashActivity.this, "b6822aadea2299", new ATSplashAdListener() {
+            @Override
+            public void onAdLoaded(boolean b) {
+
+                mAdvert.show(SplashActivity.this, content);
+            }
+
+            @Override
+            public void onAdLoadTimeout() {
+                toMain();
+
+            }
+
+            @Override
+            public void onNoAdError(AdError adError) {
+                toMain();
+            }
+
+            @Override
+            public void onAdShow(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onAdClick(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onAdDismiss(ATAdInfo atAdInfo, ATSplashAdExtraInfo atSplashAdExtraInfo) {
+                toMain();
+            }
+        }, 5000);
+
+        mAdvert.loadAd();
+    }
+
+    private void initZx() {
         SplashAd ad = new SplashAd("2629995460");
         ad.enableDebug();
-        if (getIntent().hasExtra("platforms")) {
-            ad.enableDebug((Platform[]) getIntent()
-                    .getSerializableExtra("platforms"));
-        }
+
         ad.setAdLoadListener(new AdLoadListener() {
             @Override
             public void onLoad() {
@@ -52,11 +106,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onNoAd(int code, String message) {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
+                toMain();
             }
         });
         ad.setAdViewListener(new AdViewListener() {
@@ -70,11 +120,7 @@ public class SplashActivity extends AppCompatActivity {
                     adClose = true;
                     return;
                 }
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
+                toMain();
             }
 
             @Override
@@ -88,11 +134,12 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onResourceError() {
                 if (!SplashActivity.this.isFinishing()) {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(intent);
-                    finish();
+                    toMain();
+//                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//                    startActivity(intent);
+//                    finish();
                 }
             }
         });
@@ -100,16 +147,11 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (adClose) {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
-        }
+    private void toMain(){
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
-
 }
