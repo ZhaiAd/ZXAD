@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.ViewGroup;
 
 import com.anythink.core.api.ATAdConst;
+import com.anythink.core.api.ATBiddingListener;
 import com.anythink.core.api.ATBiddingResult;
 import com.anythink.core.api.ATInitMediation;
 import com.anythink.core.api.ErrorCode;
@@ -28,35 +29,32 @@ import java.util.Map;
  */
 public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListener, AdLoadListener {
 
-    final String TAG = ZXSplashAdapter.class.getSimpleName();
-
-    String mPayload;
-
     boolean isC2SBidding = false;
 
     private String mAppId;
 
-    private String mUnitId;
+    private String mPosId;
 
     private boolean isReady;
 
     private SplashAd splashAD;
 
-    private void startLoadAd(final Context context, Map<String, Object> serverExtra) {
-        splashAD = new SplashAd(mUnitId);
-        splashAD.setAdLoadListener(this);
-        splashAD.setAdViewListener(this);
+    @Override
+    public void loadCustomNetworkAd(Context context, Map<String, Object> serverExtra, final Map<String, Object> localExtra) {
+
+        initRequestParams(serverExtra);
+
+        if (TextUtils.isEmpty(mAppId) || TextUtils.isEmpty(mPosId)) {
+            notifyATLoadFail("", "ZXAD appid or unitId is empty.");
+            return;
+        }
+
+        ZXAD.init(context, mPosId);
+
+        startLoadAd(context);
     }
 
-    private void initRequestParams(Map<String, Object> serverExtra, Map<String, Object> localExtra) {
-        mAppId = ATInitMediation.getStringFromMap(serverExtra, "appid");
-        Log.d("Hao",mAppId);
-        mUnitId = ATInitMediation.getStringFromMap(serverExtra, "unit_id");
-        Log.d("Hao",mUnitId);
-        mPayload = ATInitMediation.getStringFromMap(serverExtra, "payload");
 
-        isReady = false;
-    }
 
     @Override
     public void show(Activity activity, ViewGroup viewGroup) {
@@ -76,19 +74,8 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
     }
 
     @Override
-    public void loadCustomNetworkAd(Context context, Map<String, Object> serverExtra, final Map<String, Object> localExtra) {
-        initRequestParams(serverExtra, localExtra);
-
-        if (TextUtils.isEmpty(mAppId) || TextUtils.isEmpty(mUnitId)) {
-            notifyATLoadFail("", "ZXAD appid or unitId is empty.");
-            return;
-        }
-
-        ZXAD.init(context, mUnitId);
-    }
-
-    @Override
     public void destory() {
+        if (splashAD!=null)
         splashAD = null;
     }
 
@@ -99,7 +86,7 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
 
     @Override
     public String getNetworkPlacementId() {
-        return mUnitId;
+        return mPosId;
     }
 
     @Override
@@ -141,15 +128,21 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
 
     @Override
     public void onResourceError() {
+        if (mImpressionListener != null) {
+            mImpressionListener.onSplashAdDismiss();
+        }
     }
 
     @Override
     public void onLoad() {
+
         isReady = true;
+
         if (isC2SBidding) {
             if (mBiddingListener != null) {
                 if (splashAD != null) {
                     double price = splashAD.getEcpm();
+
                     mBiddingListener.onC2SBiddingResultWithCache(ATBiddingResult.success(price, System.currentTimeMillis() + "", null, ATAdConst.CURRENCY.RMB_CENT), null);
                 } else {
                     notifyATLoadFail("", "ZXAD: SplashAD had been destroy.");
@@ -168,7 +161,7 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
             notifyATLoadFail(code + "", message);
             //if gdt splash show fail,will call this
             if (mImpressionListener != null) {
-                Log.e(TAG, "ZXAD Splash show fail:[errorCode:" +code + ",errorMsg:" + message + "]");
+                Log.e("Hao", "ZXAD Splash show fail:[errorCode:" +code + ",errorMsg:" + message + "]");
                 mDismissType = ATAdConst.DISMISS_TYPE.SHOWFAILED;
                 mImpressionListener.onSplashAdShowFail(ErrorCode.getErrorCode(ErrorCode.adShowError, "" + code, message));
                 mImpressionListener.onSplashAdDismiss();
@@ -181,5 +174,39 @@ public class ZXSplashAdapter extends CustomSplashAdapter implements AdViewListen
                 mImpressionListener.onSplashAdDismiss();
             }
         }
+    }
+
+    @Override
+    public boolean startBiddingRequest(Context context, Map<String, Object> serverExtra, Map<String, Object> localExtra, ATBiddingListener biddingListener) {
+        isC2SBidding = true;
+        loadCustomNetworkAd(context, serverExtra, localExtra);
+        return true;
+    }
+
+    private void startLoadAd(final Context context) {
+
+        if (!(context instanceof Activity)) {
+            notifyATLoadFail("", "ZXAD: Context must be Activity for splash ad");
+            return;
+        }
+
+        splashAD = new SplashAd(mPosId);
+
+        splashAD.enableDebug();
+
+        splashAD.setAdLoadListener(this);
+
+        splashAD.setAdViewListener(this);
+
+        splashAD.load((Activity) context);
+    }
+
+    private void initRequestParams(Map<String, Object> serverExtra) {
+
+        mAppId = ATInitMediation.getStringFromMap(serverExtra, "appid");
+
+        mPosId = ATInitMediation.getStringFromMap(serverExtra, "slot_id");
+
+        isReady = false;
     }
 }
