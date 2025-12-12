@@ -7,11 +7,14 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.anythink.core.api.ATAdInfo;
+import com.anythink.core.api.AdError;
+import com.anythink.interstitial.api.ATInterstitial;
+import com.anythink.interstitial.api.ATInterstitialListener;
 import com.heart.weather.R;
 import com.zhaixin.ZXAD;
 import com.zhaixin.advert.BannerAd;
 import com.zhaixin.advert.FullScreenAd;
-import com.zhaixin.advert.InterstitialAd;
 import com.zhaixin.advert.RewardVideoAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
@@ -112,20 +115,54 @@ public class MainActivity extends AppCompatActivity {
 
     // 插屏广告
     public void interstitialAd(View view) {
-        InterstitialAd ad = new InterstitialAd("2102886533");
-        ad.enableDebug();
-        ad.setAdLoadListener(new AdLoadListener() {
+
+        ATInterstitial mAdvert = new ATInterstitial(MainActivity.this, "b6822aae04b070");
+
+        mAdvert.setAdListener(new ATInterstitialListener() {
             @Override
-            public void onLoad() {
-                ad.show(MainActivity.this);
+            public void onInterstitialAdLoaded() {
+
+                mAdvert.show(MainActivity.this);
+
             }
 
             @Override
-            public void onNoAd(int code, String message) {
-                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+            public void onInterstitialAdLoadFail(AdError adError) {
+
+            }
+
+            @Override
+            public void onInterstitialAdClicked(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onInterstitialAdShow(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onInterstitialAdClose(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onInterstitialAdVideoStart(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onInterstitialAdVideoEnd(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onInterstitialAdVideoError(AdError adError) {
+
             }
         });
-        ad.load(MainActivity.this);
+
+        mAdvert.load();
     }
 
     // 开屏广告

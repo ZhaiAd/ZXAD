@@ -92,6 +92,7 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
 
     @Override
     public void onLoad() {
+
         isReady = true;
 
         if (isC2SBidding) {
@@ -113,22 +114,30 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
 
     @Override
     public void onNoAd(int code, String message) {
-
+        notifyATLoadFail(String.valueOf(code), message);
     }
 
     @Override
     public void onShow() {
 
+        if (mImpressionEventListener!=null)
+            mImpressionEventListener.onBannerAdShow();
+
+
+
     }
 
     @Override
     public void onClose() {
+        if (mImpressionEventListener!=null)
+            mImpressionEventListener.onBannerAdClose();
 
     }
 
     @Override
     public void onClick() {
-
+        if (mImpressionEventListener!=null)
+            mImpressionEventListener.onBannerAdClicked();
     }
 
     @Override

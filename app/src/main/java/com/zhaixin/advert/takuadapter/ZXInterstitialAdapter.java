@@ -2,11 +2,14 @@ package com.zhaixin.advert.takuadapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.TextUtils;
 
+import com.anythink.core.api.ATAdConst;
 import com.anythink.core.api.ATBiddingListener;
+import com.anythink.core.api.ATBiddingResult;
 import com.anythink.core.api.ATInitMediation;
 import com.anythink.interstitial.unitgroup.api.CustomInterstitialAdapter;
-import com.zhaixin.advert.BannerAd;
+import com.zhaixin.ZXAD;
 import com.zhaixin.advert.InterstitialAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
@@ -35,32 +38,41 @@ public class ZXInterstitialAdapter extends CustomInterstitialAdapter implements 
 
     @Override
     public void show(Activity activity) {
-
+        interstitialAd.show(activity);
     }
 
     @Override
-    public void loadCustomNetworkAd(Context context, Map<String, Object> map, Map<String, Object> map1) {
+    public void loadCustomNetworkAd(Context context, Map<String, Object> serverExtra, Map<String, Object> map1) {
+        initRequestParams(serverExtra);
 
+        if (TextUtils.isEmpty(mAppId) || TextUtils.isEmpty(mPosId)) {
+            notifyATLoadFail("", "ZXAD appid or unitId is empty.");
+            return;
+        }
+
+        ZXAD.init(context, mPosId);
+
+        startLoadAd(context);
     }
 
     @Override
     public boolean isAdReady() {
-        return false;
+        return isReady;
     }
 
     @Override
     public String getNetworkPlacementId() {
-        return null;
+        return mPosId;
     }
 
     @Override
     public String getNetworkSDKVersion() {
-        return null;
+        return ZXAD.getVersion();
     }
 
     @Override
     public String getNetworkName() {
-        return null;
+        return "宅心";
     }
 
     @Override
@@ -74,26 +86,53 @@ public class ZXInterstitialAdapter extends CustomInterstitialAdapter implements 
     @Override
     public void onLoad() {
 
+        isReady = true;
+
+        if (isC2SBidding) {
+            if (mBiddingListener != null) {
+                if (interstitialAd != null) {
+                    double price = interstitialAd.getEcpm();
+
+                    mBiddingListener.onC2SBiddingResultWithCache(ATBiddingResult.success(price, System.currentTimeMillis() + "", null, ATAdConst.CURRENCY.RMB_CENT), null);
+                } else {
+                    notifyATLoadFail("", "ZXAD: SplashAD had been destroy.");
+                }
+            }
+        } else {
+            if (mLoadListener != null) {
+                mLoadListener.onAdCacheLoaded();
+            }
+        }
+
+    }
+
+    @Override
+    public void destory() {
+        if (interstitialAd != null)
+            interstitialAd = null;
     }
 
     @Override
     public void onNoAd(int code, String message) {
-
+        notifyATLoadFail(String.valueOf(code), message);
     }
 
     @Override
     public void onShow() {
-
+        if (mImpressListener != null)
+            mImpressListener.onInterstitialAdShow();
     }
 
     @Override
     public void onClose() {
-
+        if (mImpressListener != null)
+            mImpressListener.onInterstitialAdClose();
     }
 
     @Override
     public void onClick() {
-
+        if (mImpressListener != null)
+            mImpressListener.onInterstitialAdClicked();
     }
 
     @Override
