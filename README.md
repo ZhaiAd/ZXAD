@@ -50,7 +50,7 @@ android.enableJetifier=true
 >Taku后台添加自定义广告平台时，Adapter类名需配置全路径类名（包名+类名），否则加载广告时Adapter类将不能正常被创建
 •因为SDK内部是通过反射new出Adapter的类，所以在构建release包时，必须确保Adapter类不能被混淆。混淆规则示例如下：
 ```groovy
-# 保留 com.zhaixin.advert.takuadapter 包下所有类及其所有成员
+# 保留 com.zhaixin.advert.takuadapter 包下所有类及其所有成员,路径改为您的真是路径
 -keep class com.zhaixin.advert.takuadapter.** { *; }
 ```
 

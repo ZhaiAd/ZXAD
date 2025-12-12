@@ -2,13 +2,16 @@ package com.zhaixin.advert.takuadapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.anythink.banner.unitgroup.api.CustomBannerAdapter;
+import com.anythink.core.api.ATAdConst;
 import com.anythink.core.api.ATBiddingListener;
+import com.anythink.core.api.ATBiddingResult;
 import com.anythink.core.api.ATInitMediation;
+import com.zhaixin.ZXAD;
 import com.zhaixin.advert.BannerAd;
-import com.zhaixin.advert.SplashAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
 
@@ -40,28 +43,44 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
     }
 
     @Override
-    public void loadCustomNetworkAd(Context context, Map<String, Object> map, Map<String, Object> map1) {
+    public void loadCustomNetworkAd(Context context, Map<String, Object> serverExtra, Map<String, Object> map1) {
 
+        initRequestParams(serverExtra);
+
+        if (TextUtils.isEmpty(mAppId) || TextUtils.isEmpty(mPosId)) {
+            notifyATLoadFail("", "ZXAD appid or unitId is empty.");
+            return;
+        }
+
+        ZXAD.init(context, mPosId);
+
+        startLoadAd(context);
     }
 
     @Override
     public void destory() {
+        if (bannerAd != null)
+            bannerAd = null;
+    }
 
+    @Override
+    public boolean isAdReady() {
+        return isReady;
     }
 
     @Override
     public String getNetworkPlacementId() {
-        return null;
+        return mPosId;
     }
 
     @Override
     public String getNetworkSDKVersion() {
-        return null;
+        return ZXAD.getVersion();
     }
 
     @Override
     public String getNetworkName() {
-        return null;
+        return "宅心";
     }
 
     @Override
@@ -73,7 +92,23 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
 
     @Override
     public void onLoad() {
+        isReady = true;
 
+        if (isC2SBidding) {
+            if (mBiddingListener != null) {
+                if (bannerAd != null) {
+                    double price = bannerAd.getEcpm();
+
+                    mBiddingListener.onC2SBiddingResultWithCache(ATBiddingResult.success(price, System.currentTimeMillis() + "", null, ATAdConst.CURRENCY.RMB_CENT), null);
+                } else {
+                    notifyATLoadFail("", "ZXAD: BannerAD had been destroy.");
+                }
+            }
+        } else {
+            if (mLoadListener != null) {
+                mLoadListener.onAdCacheLoaded();
+            }
+        }
     }
 
     @Override
@@ -130,7 +165,9 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
 
         bannerAd.setAdViewListener(this);
 
-        bannerAd.load((Activity) context,300,45);
+        bannerAd.load((Activity) context, 300, 45);
 
     }
+
+
 }
