@@ -5,20 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.anythink.banner.api.ATBannerListener;
+import com.anythink.banner.api.ATBannerView;
 import com.anythink.core.api.ATAdInfo;
 import com.anythink.core.api.AdError;
 import com.anythink.interstitial.api.ATInterstitial;
 import com.anythink.interstitial.api.ATInterstitialListener;
 import com.heart.weather.R;
 import com.zhaixin.ZXAD;
-import com.zhaixin.advert.BannerAd;
-import com.zhaixin.advert.FullScreenAd;
-import com.zhaixin.advert.RewardVideoAd;
-import com.zhaixin.listener.AdLoadListener;
-import com.zhaixin.listener.AdViewListener;
-import com.zhaixin.listener.VideoPlayListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,78 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
     // 激励视频
     public void rewardAd(View view) {
-        RewardVideoAd ad = new RewardVideoAd("2919646015");
-        ad.enableDebug();
-        ad.setAdLoadListener(new AdLoadListener() {
-            @Override
-            public void onLoad() {
-                ad.show(MainActivity.this);
-            }
-
-            @Override
-            public void onNoAd(int code, String message) {
-            }
-        });
-        ad.setVideoPlayListener(new VideoPlayListener() {
-            @Override
-            public void onPlayStart() {
-
-            }
-
-            @Override
-            public void onPlaySkip() {
-
-            }
-
-            @Override
-            public void onPlayFinish() {
-
-            }
-        });
-        ad.setAdViewListener(new AdViewListener() {
-            @Override
-            public void onShow() {
-            }
-
-            @Override
-            public void onClose() {
-            }
-
-            @Override
-            public void onClick() {
-            }
-
-            @Override
-            public void onReward() {
-                Toast.makeText(MainActivity.this, "奖励已获取", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onResourceError() {
-            }
-
-
-        });
-        ad.load(MainActivity.this);
 
     }
 
     // 全屏视频
     public void fullScreenAd(View view) {
-        FullScreenAd ad = new FullScreenAd("2021839469");
-        ad.enableDebug();
-        ad.setAdLoadListener(new AdLoadListener() {
-            @Override
-            public void onLoad() {
-                ad.show(MainActivity.this);
-            }
-
-            @Override
-            public void onNoAd(int code, String message) {
-                Toast.makeText(MainActivity.this, "无广告", Toast.LENGTH_SHORT).show();
-            }
-        });
-        ad.load(MainActivity.this);
     }
 
     // 插屏广告
@@ -174,32 +102,60 @@ public class MainActivity extends AppCompatActivity {
     // 横幅广告
     public void bannerAd(View view) {
 
-        BannerAd ad = new BannerAd("2208423313");
+        ATBannerView bannerView = new ATBannerView(MainActivity.this);
 
-        ad.enableDebug();
+        bannerView.setPlacementId("b6822aadf7d249");
 
-        ad.setAdLoadListener(new AdLoadListener() {
+        bannerView.setLayoutParams(new FrameLayout.LayoutParams(mContent.getWidth(), mContent.getHeight()));
+
+        bannerView.setBannerAdListener(new ATBannerListener() {
             @Override
-            public void onLoad() {
+            public void onBannerLoaded() {
 
-                ad.show(mContent);
+                mContent.addView(bannerView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, mContent.getLayoutParams().height));
+
             }
 
             @Override
-            public void onNoAd(int code, String message) {
-                Toast.makeText(MainActivity.this, "无广告", Toast.LENGTH_SHORT).show();
+            public void onBannerFailed(AdError adError) {
+
+            }
+
+            @Override
+            public void onBannerClicked(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onBannerShow(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onBannerClose(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onBannerAutoRefreshed(ATAdInfo atAdInfo) {
+
+            }
+
+            @Override
+            public void onBannerAutoRefreshFail(AdError adError) {
+
             }
         });
 
-        // 设置 Banner 广告尺寸
-        ad.load(MainActivity.this, mContent.getWidth(), 0);
+        bannerView.loadAd();
+
 
     }
 
     // 信息流(模板)
     public void feedAd(View view) {
-        Intent intent = new Intent(this, FeedListActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, FeedListActivity.class);
+//        startActivity(intent);
     }
 
 

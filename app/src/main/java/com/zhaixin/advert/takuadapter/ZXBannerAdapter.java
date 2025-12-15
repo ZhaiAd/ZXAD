@@ -3,7 +3,10 @@ package com.zhaixin.advert.takuadapter;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.anythink.banner.unitgroup.api.CustomBannerAdapter;
 import com.anythink.core.api.ATAdConst;
@@ -27,6 +30,8 @@ import java.util.Map;
  */
 public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListener, AdViewListener {
 
+    private FrameLayout container;
+
     boolean isC2SBidding = false;
 
     private String mAppId;
@@ -39,11 +44,17 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
 
     @Override
     public View getBannerView() {
-        return null;
+        return container;
     }
 
     @Override
     public void loadCustomNetworkAd(Context context, Map<String, Object> serverExtra, Map<String, Object> map1) {
+
+        container = new FrameLayout(context);
+
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        container.setLayoutParams(params);
 
         initRequestParams(serverExtra);
 
@@ -110,6 +121,8 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
                 mLoadListener.onAdCacheLoaded();
             }
         }
+
+        bannerAd.show(container);
     }
 
     @Override
@@ -122,8 +135,6 @@ public class ZXBannerAdapter extends CustomBannerAdapter implements AdLoadListen
 
         if (mImpressionEventListener!=null)
             mImpressionEventListener.onBannerAdShow();
-
-
 
     }
 
