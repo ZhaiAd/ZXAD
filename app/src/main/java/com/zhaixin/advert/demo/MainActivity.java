@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mContent = findViewById(R.id.content);
         TextView mTvTeamVersion = findViewById(R.id.mTvTeamVersion);
         mTvTeamVersion.setText(getString(R.string.textTeamVersion, ZXAD.getVersion()));
