@@ -36,6 +36,7 @@ dependencies {
     implementation(name: 'anythink_splash', ext: 'aar')//塔酷
     implementation(name: 'adgain-sdk-4.2.3.2', ext: 'aar')//数字悦动
     implementation(name: 'fissionSdk-release-1.0.81.61-open', ext: 'aar')//飞梭
+    implementation(name: 'LYAdSDK-android-v3.1.33', ext: 'aar')//掌上乐游
 
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
