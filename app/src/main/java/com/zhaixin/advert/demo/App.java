@@ -9,7 +9,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        ZXAD.init(this, "4820034");
+        ZXAD.init(this, getString(R.string.appid_zx));
 
     }
 }

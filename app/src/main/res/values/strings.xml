@@ -8,6 +8,13 @@
     <string name="textBannerAd">横幅广告</string>
     <string name="textNativeExpressAd">信息流(模版)</string>
     <string name="zhaixinad">宅心广告</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- 广告位 POSID 配置 -->
+    <string name="posid_splash">2629995460</string>
+    <string name="posid_reward">2919646015</string>
+    <string name="posid_fullscreen">2021839469</string>
+    <string name="posid_interstitial">2102886533</string>
+    <string name="posid_banner">2208423313</string>
+    <string name="posid_feed">2540096452</string>
+    <!-- AppID -->
+    <string name="appid_zx">4820034</string>
 </resources>
