@@ -12,7 +12,7 @@ import com.anythink.core.api.ATAdInfo;
 import com.anythink.core.api.AdError;
 import com.anythink.interstitial.api.ATInterstitial;
 import com.anythink.interstitial.api.ATInterstitialListener;
-import com.heart.weather.R;
+import com.lockin.loock.R;
 import com.zhaixin.ZXAD;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,53 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
     // 插屏广告
     public void interstitialAd(View view) {
-
-        ATInterstitial mAdvert = new ATInterstitial(MainActivity.this, "b6822aae04b070");
-
+        ATInterstitial mAdvert = new ATInterstitial(MainActivity.this, getString(R.string.posid_interstitial));
         mAdvert.setAdListener(new ATInterstitialListener() {
             @Override
             public void onInterstitialAdLoaded() {
-
                 mAdvert.show(MainActivity.this);
-
-            }
-
-            @Override
-            public void onInterstitialAdLoadFail(AdError adError) {
-
-            }
-
-            @Override
-            public void onInterstitialAdClicked(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onInterstitialAdShow(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onInterstitialAdClose(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onInterstitialAdVideoStart(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onInterstitialAdVideoEnd(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onInterstitialAdVideoError(AdError adError) {
-
             }
         });
-
         mAdvert.load();
     }
 
@@ -101,55 +61,16 @@ public class MainActivity extends AppCompatActivity {
 
     // 横幅广告
     public void bannerAd(View view) {
-
         ATBannerView bannerView = new ATBannerView(MainActivity.this);
-
-        bannerView.setPlacementId("b6822aadf7d249");
-
+        bannerView.setPlacementId(getString(R.string.posid_banner));
         bannerView.setLayoutParams(new FrameLayout.LayoutParams(mContent.getWidth(), mContent.getHeight()));
-
         bannerView.setBannerAdListener(new ATBannerListener() {
             @Override
             public void onBannerLoaded() {
-
                 mContent.addView(bannerView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, mContent.getLayoutParams().height));
-
-            }
-
-            @Override
-            public void onBannerFailed(AdError adError) {
-
-            }
-
-            @Override
-            public void onBannerClicked(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onBannerShow(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onBannerClose(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onBannerAutoRefreshed(ATAdInfo atAdInfo) {
-
-            }
-
-            @Override
-            public void onBannerAutoRefreshFail(AdError adError) {
-
             }
         });
-
         bannerView.loadAd();
-
-
     }
 
     // 信息流(模板)

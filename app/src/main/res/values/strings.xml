@@ -8,6 +8,10 @@
     <string name="textBannerAd">横幅广告</string>
     <string name="textNativeExpressAd">信息流(模版)</string>
     <string name="zhaixinad">宅心广告</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- AnyThink Taku 配置 -->
+    <string name="appid_zx">a6822aaa94b631</string>
+    <string name="appkey_zx">af5f12e3386e175fb763df9596f7578d4</string>
+    <!-- 广告位 POSID 配置 -->
+    <string name="posid_interstitial">b6822aae04b070</string>
+    <string name="posid_banner">b6822aadf7d249</string>
 </resources>

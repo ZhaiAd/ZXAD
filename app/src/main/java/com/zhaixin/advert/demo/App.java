@@ -9,12 +9,9 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        ATSDK.init(this, "a6822aaa94b631", "af5f12e3386e175fb763df9596f7578d4");
-
+        ATSDK.init(this, getString(R.string.appid_zx), getString(R.string.appkey_zx));
         ATSDK.start();
-
         ATSDK.integrationChecking(this);
-
         ATSDK.setNetworkLogDebug(true);
     }
 }

@@ -13,7 +13,7 @@ import com.anythink.core.api.AdError;
 import com.anythink.splashad.api.ATSplashAd;
 import com.anythink.splashad.api.ATSplashAdExtraInfo;
 import com.anythink.splashad.api.ATSplashAdListener;
-import com.heart.weather.R;
+import com.lockin.loock.R;
 import com.zhaixin.advert.SplashAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
