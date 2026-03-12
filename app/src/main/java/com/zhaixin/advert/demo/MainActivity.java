@@ -15,7 +15,6 @@ import com.zhaixin.advert.InterstitialAd;
 import com.zhaixin.advert.RewardVideoAd;
 import com.zhaixin.listener.AdLoadListener;
 import com.zhaixin.listener.AdViewListener;
-import com.zhaixin.listener.VideoPlayListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,11 +43,36 @@ public class MainActivity extends AppCompatActivity {
             public void onLoad() {
                 ad.show(MainActivity.this);
             }
+
+            @Override
+            public void onNoAd(int code, String message) {
+
+            }
         });
         ad.setAdViewListener(new AdViewListener() {
             @Override
+            public void onShow() {
+
+            }
+
+            @Override
+            public void onClose() {
+
+            }
+
+            @Override
+            public void onClick() {
+
+            }
+
+            @Override
             public void onReward() {
                 Toast.makeText(MainActivity.this, "奖励已获取", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResourceError() {
+
             }
         });
         ad.load(MainActivity.this);
