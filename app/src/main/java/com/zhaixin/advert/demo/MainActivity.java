@@ -49,6 +49,34 @@ public class MainActivity extends AppCompatActivity {
             public void onInterstitialAdLoaded() {
                 mAdvert.show(MainActivity.this);
             }
+
+            @Override
+            public void onInterstitialAdLoadFail(AdError adError) {
+            }
+
+            @Override
+            public void onInterstitialAdClicked(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onInterstitialAdShow(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onInterstitialAdClose(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onInterstitialAdVideoStart(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onInterstitialAdVideoEnd(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onInterstitialAdVideoError(AdError adError) {
+            }
         });
         mAdvert.load();
     }
@@ -68,6 +96,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onBannerLoaded() {
                 mContent.addView(bannerView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, mContent.getLayoutParams().height));
+            }
+
+            @Override
+            public void onBannerFailed(AdError adError) {
+            }
+
+            @Override
+            public void onBannerClicked(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onBannerShow(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onBannerClose(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onBannerAutoRefreshed(ATAdInfo atAdInfo) {
+            }
+
+            @Override
+            public void onBannerAutoRefreshFail(AdError adError) {
             }
         });
         bannerView.loadAd();
