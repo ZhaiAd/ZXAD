@@ -37,10 +37,8 @@ public class SplashActivity extends AppCompatActivity {
 
         content = findViewById(R.id.content);
 
-        SplashAd ad = new SplashAd("2629995460");
-
+        SplashAd ad = new SplashAd(getString(R.string.posid_splash));
         ad.enableDebug();
-
         ad.setAdLoadListener(new AdLoadListener() {
             @Override
             public void onLoad() {
@@ -49,47 +47,23 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onNoAd(int code, String message) {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
+                gotoMain();
             }
         });
         ad.setAdViewListener(new AdViewListener() {
-            @Override
-            public void onShow() {
-            }
-
             @Override
             public void onClose() {
                 if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
                     adClose = true;
                     return;
                 }
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void onClick() {
-            }
-
-            @Override
-            public void onReward() {
+                gotoMain();
             }
 
             @Override
             public void onResourceError() {
                 if (!SplashActivity.this.isFinishing()) {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(intent);
-                    finish();
+                    gotoMain();
                 }
             }
         });
