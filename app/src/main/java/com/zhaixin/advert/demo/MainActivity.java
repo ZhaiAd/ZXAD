@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.heart.weather.R;
+import com.zhaixin.advert.demo.R;
 import com.zhaixin.ZXAD;
 import com.zhaixin.advert.BannerAd;
 import com.zhaixin.advert.FullScreenAd;

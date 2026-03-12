@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.zhaixin.test"
+        applicationId "com.lockin.loock"
         minSdkVersion 24
         targetSdkVersion 31
         versionCode 1

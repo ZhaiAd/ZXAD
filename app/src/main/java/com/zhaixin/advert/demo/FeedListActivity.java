@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.heart.weather.R;
+import com.zhaixin.advert.demo.R;
 import com.zhaixin.advert.FeedAd;
 import com.zhaixin.advert.FeedAdData;
 import com.zhaixin.advert.Platform;
