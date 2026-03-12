@@ -7,6 +7,10 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import com.lockin.loock.R;
 import com.zhaixin.ZXAD;
 import com.zhaixin.advert.BannerAd;
@@ -31,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         TextView mTvTeamVersion = findViewById(R.id.mTvTeamVersion);
         mTvTeamVersion.setText(getString(R.string.textTeamVersion, ZXAD.getVersion()));
 
+        // 显示编译时间
+        TextView mTvBuildTime = findViewById(R.id.mTvBuildTime);
+        String buildTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                .format(new Date());
+        mTvBuildTime.setText("Build: " + buildTime);
     }
 
     // 激励视频
