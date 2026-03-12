@@ -14,11 +14,11 @@ repositories {
 }
 
 dependencies {
-    implementation(name: 'ZhaiXin_V2.6.1_release', ext: "aar")//宅心
+    implementation(name: 'ZhaiXin_2.7.0_release', ext: "aar")//宅心
     implementation(name: 'open_ad_sdk_7.2.0.9', ext: "aar")//穿山甲
-    implementation(name: 'GDTSDK.unionNormal.4.660.1530', ext: "aar")//优量汇
-    implementation(name: 'Baidu_MobAds_SDK-release_v9.42', ext: "aar")//百度
-    implementation(name: 'kssdk-ad-4.9.20.1-publishRelease-a97b69133a', ext: "aar")//快手
+    implementation(name: 'GDTSDK.unionNormal.4.662.1532', ext: "aar")//优量汇
+    implementation(name: 'Baidu_MobAds_SDK-release_v9.422', ext: "aar")//百度
+    implementation(name: 'kssdk-ad-4.10.30.1-publishRelease-22c31096b4', ext: "aar")//快手
     implementation(name: 'jad_yun_sdk_jingdong_2.6.32_20250523', ext: 'aar')//京东
     implementation(name: 'beizi_fusion_sdk_5.2.1.18', ext: "aar")//倍孜
     implementation(name: 'octopus_ad_sdk_1.6.4.7', ext: "aar")//章鱼
@@ -35,8 +35,10 @@ dependencies {
     implementation(name: 'anythink_rewardvideo', ext: 'aar')//塔酷
     implementation(name: 'anythink_splash', ext: 'aar')//塔酷
     implementation(name: 'adgain-sdk-4.2.3.2', ext: 'aar')//数字悦动
-    implementation(name: 'fissionSdk-release-1.0.81.61-open', ext: 'aar')//飞梭
+    implementation(name: 'fissionSdk-release-1.0.87.81-amp', ext: 'aar')//飞梭
     implementation(name: 'LYAdSDK-android-v3.1.33', ext: 'aar')//掌上乐游
+    implementation(name: 'adview-android-5.0.3', ext: 'aar')//快友
+    implementation(name: 'oaid_sdk_1.0.25', ext: 'aar')//OAID
 
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
