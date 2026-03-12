@@ -52,12 +52,24 @@ public class SplashActivity extends AppCompatActivity {
         });
         ad.setAdViewListener(new AdViewListener() {
             @Override
+            public void onShow() {
+            }
+
+            @Override
             public void onClose() {
                 if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
                     adClose = true;
                     return;
                 }
                 gotoMain();
+            }
+
+            @Override
+            public void onClick() {
+            }
+
+            @Override
+            public void onReward() {
             }
 
             @Override
