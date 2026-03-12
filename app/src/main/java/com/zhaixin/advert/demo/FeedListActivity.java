@@ -12,6 +12,8 @@ import com.zhaixin.advert.FeedAd;
 import com.zhaixin.advert.FeedAdData;
 import com.zhaixin.advert.Platform;
 import com.zhaixin.listener.FeedLoadListener;
+import com.zhaixin.advert.demo.AdHelper;
+import com.zhaixin.advert.demo.AdHelper.FeedLoadCallback;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -70,45 +72,29 @@ public class FeedListActivity extends AppCompatActivity {
         if (!swipeRefresh.isRefreshing()) {
             swipeRefresh.setEnabled(false);
         }
-        FeedAd advert = new FeedAd("2540096452");
+        FeedAd advert = new FeedAd(getString(R.string.posid_feed));
         if (getIntent().hasExtra("platforms")) {
-            advert.enableDebug((Platform[]) getIntent()
-                    .getSerializableExtra("platforms"));
+            advert.enableDebug((Platform[]) getIntent().getSerializableExtra("platforms"));
         }
-        advert.setAdLoadListener(new FeedLoadListener() {
-            @Override
-            public void onLoad(List<FeedAdData> list) {
-                mPage = page;
-                int count = (page - 1) * 20;
-                List<String> fakeData = new ArrayList<>();
-                for (int i = count + 1; i <= count + 20; i++) {
-                    fakeData.add("Item " + i);
-                }
-                if (page <= 1) adapter.clearData();
-                adapter.addData(fakeData, list);
-
-                mIsLoading = false;
-                swipeRefresh.setEnabled(true);
-                swipeRefresh.setRefreshing(false);
-            }
-
-            @Override
-            public void onNoAd(int code, String message) {
-                mPage = page;
-                int count = (page - 1) * 20;
-                List<String> fakeData = new ArrayList<>();
-                for (int i = count + 1; i <= count + 20; i++) {
-                    fakeData.add("Item " + i);
-                }
-                if (page <= 1) adapter.clearData();
-                adapter.addData(fakeData, Collections.emptyList());
-
-                mIsLoading = false;
-                swipeRefresh.setEnabled(true);
-                swipeRefresh.setRefreshing(false);
-            }
-        });
+        advert.setAdLoadListener(AdHelper.createFeedLoadListener(
+            list -> updateAdapter(page, list),
+            list -> updateAdapter(page, Collections.emptyList())
+        ));
         advert.load(this);
+    }
+
+    private void updateAdapter(int page, List<FeedAdData> ads) {
+        mPage = page;
+        int count = (page - 1) * 20;
+        List<String> fakeData = new ArrayList<>();
+        for (int i = count + 1; i <= count + 20; i++) {
+            fakeData.add("Item " + i);
+        }
+        if (page <= 1) adapter.clearData();
+        adapter.addData(fakeData, ads != null ? ads : Collections.emptyList());
+        mIsLoading = false;
+        swipeRefresh.setEnabled(true);
+        swipeRefresh.setRefreshing(false);
     }
 
     public static class SimpleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
