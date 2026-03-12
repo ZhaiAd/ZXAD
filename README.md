@@ -49,8 +49,8 @@ dependencies {
     
     // 第三方广告平台
     implementation(name: 'adview-android-5.0.3', ext: 'aar')  // 快友
-    implementation(name: 'fs.aar', ext: 'aar')                // 飞梭
-    implementation(name: 'ly.aar', ext: 'aar')                // 乐游
+    implementation(name: 'fs', ext: 'aar')                    // 飞梭
+    implementation(name: 'ly', ext: 'aar')                    // 乐游
     
     // 基础依赖
     implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
