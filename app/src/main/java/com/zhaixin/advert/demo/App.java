@@ -3,6 +3,7 @@ package com.zhaixin.advert.demo;
 import android.app.Application;
 
 import com.anythink.core.api.ATSDK;
+import com.lockin.loock.R;
 
 public class App extends Application {
     @Override
