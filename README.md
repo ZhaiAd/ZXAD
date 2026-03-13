@@ -36,7 +36,7 @@ dependencies {
     // 广告平台 SDK
     implementation(name: 'ZhaiXin_2.7.0_release', ext: "aar")           // 宅心
     implementation(name: 'open_ad_sdk_7.4.2.0', ext: "aar")              // 穿山甲
-    implementation(name: 'GDTSDK.unionNormal.4.662.1532', ext: "aar")    // 优量汇
+    implementation(name: 'GDTSDK.unionNormal.4.671.1541', ext: "aar")    // 优量汇
     implementation(name: 'Baidu_MobAds_SDK-release_v9.422', ext: "aar")  // 百度
     implementation(name: 'kssdk-ad-4.10.30.1-publishRelease-22c31096b4', ext: "aar")  // 快手
     implementation(name: 'jad_yun_sdk_jingdong_2.6.32_20250523', ext: 'aar')  // 京东
