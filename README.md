@@ -35,8 +35,6 @@ repositories {
 dependencies {
     // 宅心广告 SDK
     implementation(name: 'ZhaiXin_3.3.0_release', ext: "aar")
-    
-    // AnyThink 塔酷 SDK
     implementation(name: 'ag', ext: 'aar')
     implementation(name: 'china_core', ext: 'aar')
     implementation(name: 'core', ext: 'aar')
