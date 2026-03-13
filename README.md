@@ -37,7 +37,7 @@ dependencies {
     implementation(name: 'ZhaiXin_2.7.0_release', ext: "aar")           // 宅心
     implementation(name: 'open_ad_sdk_7.4.2.0', ext: "aar")              // 穿山甲
     implementation(name: 'GDTSDK.unionNormal.4.671.1541', ext: "aar")    // 优量汇
-    implementation(name: 'Baidu_MobAds_SDK-release_v9.422', ext: "aar")  // 百度
+    implementation(name: 'Baidu_MobAds_SDK-release_v9.432', ext: "aar")  // 百度
     implementation(name: 'Baidu_MobAds_Tools_SDK-release_v3.1', ext: "aar")  // 百度工具
     implementation(name: 'kssdk-ad-5.1.20.1-publishRelease-a40be1a093', ext: "aar")  // 快手
     implementation(name: 'jad_yun_sdk_jingdong_2.6.32_20250523', ext: 'aar')  // 京东
