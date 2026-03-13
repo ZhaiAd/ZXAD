@@ -48,7 +48,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (adClose) {
-            toMain();
+            gotoMain();
         }
     }
 
@@ -62,13 +62,13 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAdLoadTimeout() {
-                toMain();
+                gotoMain();
 
             }
 
             @Override
             public void onNoAdError(AdError adError) {
-                toMain();
+                gotoMain();
             }
 
             @Override
@@ -83,7 +83,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAdDismiss(ATAdInfo atAdInfo, ATSplashAdExtraInfo atSplashAdExtraInfo) {
-                toMain();
+                gotoMain();
             }
         }, 5000);
 
@@ -91,7 +91,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-    private void toMain() {
+    private void gotoMain() {
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
