@@ -14,13 +14,9 @@ import com.anythink.splashad.api.ATSplashAd;
 import com.anythink.splashad.api.ATSplashAdExtraInfo;
 import com.anythink.splashad.api.ATSplashAdListener;
 import com.heart.weather.R;
-import com.zhaixin.advert.SplashAd;
-import com.zhaixin.listener.AdLoadListener;
-import com.zhaixin.listener.AdViewListener;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Lifecycle;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -95,7 +91,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-    private void toMain(){
+    private void toMain() {
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
