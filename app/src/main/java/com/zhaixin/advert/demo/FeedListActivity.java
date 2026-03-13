@@ -11,9 +11,6 @@ import com.lockin.loock.R;
 import com.zhaixin.advert.FeedAd;
 import com.zhaixin.advert.FeedAdData;
 import com.zhaixin.advert.Platform;
-import com.zhaixin.listener.FeedLoadListener;
-import com.zhaixin.advert.demo.AdHelper;
-import com.zhaixin.advert.demo.AdHelper.FeedLoadCallback;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -77,8 +74,8 @@ public class FeedListActivity extends AppCompatActivity {
             advert.enableDebug((Platform[]) getIntent().getSerializableExtra("platforms"));
         }
         advert.setAdLoadListener(AdHelper.createFeedLoadListener(
-            list -> updateAdapter(page, list),
-            list -> updateAdapter(page, Collections.emptyList())
+                list -> updateAdapter(page, list),
+                list -> updateAdapter(page, Collections.emptyList())
         ));
         advert.load(this);
     }

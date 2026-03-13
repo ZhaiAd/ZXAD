@@ -86,12 +86,16 @@ public class SplashActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (adClose) {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
+            gotoMain();
         }
+    }
+
+    private void gotoMain(){
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 
 
