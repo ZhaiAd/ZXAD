@@ -43,6 +43,7 @@ dependencies {
     implementation(name: 'native', ext: 'aar')
     implementation(name: 'rewardvideo', ext: 'aar')
     implementation(name: 'splash', ext: 'aar')
+    implementation(name: 'ly', ext: 'aar')                    // 乐游
     
     // 基础依赖
     implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.4'
