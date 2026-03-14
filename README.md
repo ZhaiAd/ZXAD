@@ -1,6 +1,6 @@
 # 宅心科技广告引擎 Android 接入文档
 
-> 版本：2.7.0 | 更新时间：2026.03.13
+> 版本：2.7.1 | 更新时间：2026.03.14
 
 ---
 
@@ -34,13 +34,13 @@ repositories {
 
 dependencies {
     // 广告平台 SDK
-    implementation(name: 'ZhaiXin_2.7.0_release', ext: "aar")           // 宅心
+    implementation(name: 'ZhaiXin_2.7.1_release', ext: "aar")            // 宅心
+    implementation(name: 'beizi_fusion_sdk_5.2.3.2', ext: "aar")         // 倍孜
     implementation(name: 'open_ad_sdk_7.4.2.0', ext: "aar")              // 穿山甲
     implementation(name: 'GDTSDK.unionNormal.4.671.1541', ext: "aar")    // 优量汇
     implementation(name: 'Baidu_MobAds_SDK-release_v9.432', ext: "aar")  // 百度
     implementation(name: 'kssdk-ad-5.1.20.1-publishRelease-a40be1a093', ext: "aar")  // 快手
     implementation(name: 'jad_yun_sdk_jingdong_2.6.32_20250523', ext: 'aar')  // 京东
-    implementation(name: 'beizi_fusion_sdk_5.2.1.18', ext: "aar")        // 倍孜
     implementation(name: 'octopus_ad_sdk_1.6.4.7', ext: "aar")           // 章鱼
     implementation(name: 'ms-sdk_2.5.8.11_release', ext: 'aar')          // 美数
     implementation(name: 'domob-ad-sdk-3.6.1', ext: 'aar')               // 多盟
@@ -283,5 +283,6 @@ String version = ZXAD.getVersion();
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| 2.7.1 | 2026.03.14 | 更新宅心 SDK 至 2.7.1，倍孜 SDK 至 5.2.3.2 |
 | 2.7.0 | 2026.03.13 | 更新 SDK 版本，优化代码结构 |
 | 2.6.1 | 2025.11.25 | 初始版本 |
