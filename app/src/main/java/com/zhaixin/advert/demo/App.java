@@ -2,6 +2,7 @@ package com.zhaixin.advert.demo;
 
 import android.app.Application;
 
+import com.lockin.loock.R;
 import com.zhaixin.ZXAD;
 
 public class App extends Application {

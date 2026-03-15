@@ -43,6 +43,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onLoad() {
                 ad.show(content);
+                ad.biddingFailed("CHUANSHANJIA",3000);
             }
 
             @Override
