@@ -132,6 +132,7 @@ ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
         ad.show(MainActivity.this);
+        ad.biddingFailed("CHUANSHANJIA",3000); // 竞价失败回传
     }
 });
 
@@ -155,6 +156,7 @@ ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
         ad.show(MainActivity.this);
+        ad.biddingFailed("CHUANSHANJIA",3000); // 竞价失败回传
     }
 
     @Override
@@ -176,6 +178,7 @@ ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
         ad.show(MainActivity.this);
+        ad.biddingFailed("CHUANSHANJIA",3000); // 竞价失败回传
     }
 
     @Override
@@ -197,6 +200,7 @@ ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
         ad.show(mContent);
+        ad.biddingFailed("CHUANSHANJIA",3000); // 竞价失败回传
     }
 });
 
