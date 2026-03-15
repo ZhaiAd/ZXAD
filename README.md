@@ -94,6 +94,7 @@ ad.setAdLoadListener(new AdLoadListener() {
     @Override
     public void onLoad() {
         ad.show(content);  // content 为广告容器
+        ad.biddingFailed("CHUANSHANJIA",3000); // 竞价失败回传
     }
 
     @Override
