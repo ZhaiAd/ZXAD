@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLoad() {
                 ad.show(MainActivity.this);
+                ad.biddingFailed("CHUANSHANJIA",3000);
             }
 
             @Override
