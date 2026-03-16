@@ -34,31 +34,31 @@ repositories {
 
 dependencies {
     // 广告平台 SDK
-    implementation(name: 'ZhaiXin_2.7.1_release', ext: "aar")            // 宅心
-    implementation(name: 'beizi_fusion_sdk_5.2.3.2', ext: "aar")         // 倍孜
-    implementation(name: 'open_ad_sdk_7.4.2.0', ext: "aar")              // 穿山甲
-    implementation(name: 'GDTSDK.unionNormal.4.671.1541', ext: "aar")    // 优量汇
-    implementation(name: 'Baidu_MobAds_SDK-release_v9.432', ext: "aar")  // 百度
-    implementation(name: 'kssdk-ad-5.1.20.1-publishRelease-a40be1a093', ext: "aar")  // 快手
-    implementation(name: 'jad_yun_sdk_jingdong_2.6.32_20250523', ext: 'aar')  // 京东
-    implementation(name: 'octopus_ad_sdk_1.6.4.7', ext: "aar")           // 章鱼
-    implementation(name: 'ms-sdk_2.5.8.11_release', ext: 'aar')          // 美数
-    implementation(name: 'domob-ad-sdk-3.6.1', ext: 'aar')               // 多盟
-    implementation(name: 'mm_ad_sdk_7.4.10.0_android', ext: 'aar')       // 脉盟
-    implementation(name: 'wind-common-1.8.6', ext: 'aar')                // sigmob
-    implementation(name: 'wind-sdk-4.24.7', ext: 'aar')                  // sigmob
-    implementation(name: 'anythink_china_core', ext: 'aar')              // 塔酷
-    implementation(name: 'anythink_core', ext: 'aar')                    // 塔酷
-    implementation(name: 'anythink_banner', ext: 'aar')                  // 塔酷
-    implementation(name: 'anythink_interstitial', ext: 'aar')            // 塔酷
-    implementation(name: 'anythink_native', ext: 'aar')                  // 塔酷
-    implementation(name: 'anythink_rewardvideo', ext: 'aar')             // 塔酷
-    implementation(name: 'anythink_splash', ext: 'aar')                  // 塔酷
-    implementation(name: 'adgain-sdk-4.2.3.2', ext: 'aar')               // 数字悦动
-    implementation(name: 'fissionSdk-release-1.0.87.81-amp', ext: 'aar') // 飞梭
-    implementation(name: 'LYAdSDK-android-v3.1.33', ext: 'aar')          // 掌上乐游
-    implementation(name: 'adview-android-5.0.3', ext: 'aar')             // 快友
-    implementation(name: 'oaid_sdk_1.0.25', ext: 'aar')                  // OAID
+    implementation(name: 'ZhaiXin_v2.7.1', ext: "aar")                   // 宅心
+    implementation(name: 'Beizi_v5.2.3.2', ext: "aar")                   // 倍孜
+    implementation(name: 'CSJ_v7.4.2.0', ext: "aar")                     // 穿山甲
+    implementation(name: 'GDT_v4.671.1541', ext: "aar")                  // 优量汇
+    implementation(name: 'Baidu_v9.432', ext: "aar")                     // 百度
+    implementation(name: 'Kuaishou_v5.1.20.1', ext: "aar")               // 快手
+    implementation(name: 'JD_v2.6.32', ext: 'aar')                       // 京东
+    implementation(name: 'Octopus_v1.6.4.7', ext: "aar")                 // 章鱼
+    implementation(name: 'Meishu_v2.5.8.11', ext: 'aar')                 // 美数
+    implementation(name: 'Domob_v3.6.1', ext: 'aar')                     // 多盟
+    implementation(name: 'Maimeng_v7.4.10.0', ext: 'aar')                // 脉盟
+    implementation(name: 'Sigmob_Common_v1.8.6', ext: 'aar')             // sigmob
+    implementation(name: 'Sigmob_SDK_v4.24.7', ext: 'aar')               // sigmob
+    implementation(name: 'AnyThink_ChinaCore', ext: 'aar')               // 塔酷
+    implementation(name: 'AnyThink_Core', ext: 'aar')                    // 塔酷
+    implementation(name: 'AnyThink_Banner', ext: 'aar')                  // 塔酷
+    implementation(name: 'AnyThink_Interstitial', ext: 'aar')            // 塔酷
+    implementation(name: 'AnyThink_Native', ext: 'aar')                  // 塔酷
+    implementation(name: 'AnyThink_RewardVideo', ext: 'aar')             // 塔酷
+    implementation(name: 'AnyThink_Splash', ext: 'aar')                  // 塔酷
+    implementation(name: 'AdGain_v4.2.3.2', ext: 'aar')                  // 数字悦动
+    implementation(name: 'Fission_v1.0.87.81', ext: 'aar')               // 飞梭
+    implementation(name: 'Leyou_v3.1.33', ext: 'aar')                    // 掌上乐游
+    implementation(name: 'AdView_v5.0.3', ext: 'aar')                    // 快友
+    implementation(name: 'OAID_v1.0.25', ext: 'aar')                     // OAID
 
     // 基础依赖
     implementation 'androidx.appcompat:appcompat:1.0.0'
