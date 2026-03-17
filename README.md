@@ -1,6 +1,6 @@
 # 宅心科技广告引擎 Android 接入文档
 
-> 版本：2.7.1 | 更新时间：2026.03.14
+> 版本：2.7.5 | 更新时间：2026.03.17
 
 ---
 
@@ -34,19 +34,19 @@ repositories {
 
 dependencies {
     // 广告平台 SDK
-    implementation(name: 'ZhaiXin_v2.7.1', ext: "aar")                   // 宅心
-    implementation(name: 'Beizi_v5.2.3.2', ext: "aar")                   // 倍孜
+    implementation(name: 'ZhaiXin_v2.7.5_release', ext: "aar")           // 宅心
+    implementation(name: 'Beizi_v5.3.0.3', ext: "aar")                   // 倍孜
     implementation(name: 'CSJ_v7.4.2.0', ext: "aar")                     // 穿山甲
-    implementation(name: 'GDT_v4.671.1541', ext: "aar")                  // 优量汇
-    implementation(name: 'Baidu_v9.432', ext: "aar")                     // 百度
+    implementation(name: 'GDTSDK.unionNormal.4.671.1541', ext: "aar")    // 优量汇
+    implementation(name: 'Baidu_v9.440', ext: "aar")                     // 百度
     implementation(name: 'Kuaishou_v5.1.20.1', ext: "aar")               // 快手
     implementation(name: 'JD_v2.6.32', ext: 'aar')                       // 京东
-    implementation(name: 'Octopus_v1.6.4.7', ext: "aar")                 // 章鱼
-    implementation(name: 'Meishu_v2.5.8.11', ext: 'aar')                 // 美数
-    implementation(name: 'Domob_v3.6.1', ext: 'aar')                     // 多盟
+    implementation(name: 'Octopus_v2.6.3.16', ext: "aar")                // 章鱼
+    implementation(name: 'Meishu_v2.5.11.0', ext: 'aar')                 // 美数
+    implementation(name: 'Domob_v3.7.3', ext: 'aar')                     // 多盟
     implementation(name: 'Maimeng_v7.4.10.0', ext: 'aar')                // 脉盟
-    implementation(name: 'Sigmob_Common_v1.8.6', ext: 'aar')             // sigmob
-    implementation(name: 'Sigmob_SDK_v4.24.7', ext: 'aar')               // sigmob
+    implementation(name: 'Sigmob_Common_v1.9.6', ext: 'aar')             // sigmob
+    implementation(name: 'Sigmob_SDK_v4.25.11', ext: 'aar')              // sigmob
     implementation(name: 'AnyThink_ChinaCore', ext: 'aar')               // 塔酷
     implementation(name: 'AnyThink_Core', ext: 'aar')                    // 塔酷
     implementation(name: 'AnyThink_Banner', ext: 'aar')                  // 塔酷
@@ -54,8 +54,8 @@ dependencies {
     implementation(name: 'AnyThink_Native', ext: 'aar')                  // 塔酷
     implementation(name: 'AnyThink_RewardVideo', ext: 'aar')             // 塔酷
     implementation(name: 'AnyThink_Splash', ext: 'aar')                  // 塔酷
-    implementation(name: 'AdGain_v4.2.3.2', ext: 'aar')                  // 数字悦动
-    implementation(name: 'Fission_v1.0.87.81', ext: 'aar')               // 飞梭
+    implementation(name: 'AdGain_v4.2.6.6', ext: 'aar')                  // 数字悦动
+    implementation(name: 'Fission_v1.0.95.01', ext: 'aar')               // 飞梭
     implementation(name: 'Leyou_v3.1.33', ext: 'aar')                    // 掌上乐游
     implementation(name: 'AdView_v5.0.3', ext: 'aar')                    // 快友
     implementation(name: 'OAID_v1.0.25', ext: 'aar')                     // OAID
@@ -283,6 +283,7 @@ String version = ZXAD.getVersion();
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| 2.7.5 | 2026.03.17 | 更新宅心 SDK 至 2.7.5，倍孜至 5.3.0.3，章鱼至 2.6.3.16，美数至 2.5.11.0，多盟至 3.7.3，飞梭至 1.0.95.01，百度至 9.440，数字悦动至 4.2.6.6，Sigmob 至 4.25.11 |
 | 2.7.1 | 2026.03.14 | 更新宅心 SDK 至 2.7.1，倍孜 SDK 至 5.2.3.2 |
 | 2.7.0 | 2026.03.13 | 更新 SDK 版本，优化代码结构 |
 | 2.6.1 | 2025.11.25 | 初始版本 |
