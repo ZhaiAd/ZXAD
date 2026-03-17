@@ -37,7 +37,7 @@ dependencies {
     implementation(name: 'ZhaiXin_v2.7.5_release', ext: "aar")           // 宅心
     implementation(name: 'Beizi_v5.3.0.3', ext: "aar")                   // 倍孜
     implementation(name: 'CSJ_v7.4.2.0', ext: "aar")                     // 穿山甲
-    implementation(name: 'GDTSDK.unionNormal.4.671.1541', ext: "aar")    // 优量汇
+    implementation(name: 'GDT_v4.671.1541', ext: "aar")                  // 优量汇
     implementation(name: 'Baidu_v9.440', ext: "aar")                     // 百度
     implementation(name: 'Kuaishou_v5.1.20.1', ext: "aar")               // 快手
     implementation(name: 'JD_v2.6.32', ext: 'aar')                       // 京东
