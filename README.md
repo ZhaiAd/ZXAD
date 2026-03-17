@@ -267,10 +267,6 @@ double ecpm = ad.getEcpm();
 
 调用 `ad.enableDebug()` 可开启 SDK 调试日志，发布前请关闭
 
-### 4. ADX 版本特性
-
-ADX 版本使用 AnyThink (塔酷) 聚合 SDK，支持更多广告源和更高的填充率
-
 ---
 
 ## 更新日志
